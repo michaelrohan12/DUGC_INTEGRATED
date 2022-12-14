@@ -13,14 +13,15 @@ th, td {
   }
 
 #consolidated-table {
-    margin-left: 1600px;
-    border: 1px solid black;
-    background-color: white;
-    margin: auto;
-    overflow-x: auto;
-    overflow-y: auto;
-    height: 100%;
-    width: 100%;
+    margin-left: 1600px !important;
+    border: 1px solid black !important;
+    background-color: white !important;
+    margin: auto !important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    height: 100% !important;
+    width: 100% !important;
+    text-align: center !important;;
 }
 
 
@@ -44,6 +45,7 @@ th, td {
     border-radius: 10px;
 }
 h1 {
+    font-size: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,12 +156,12 @@ a {
     align-items: center;
 }
 .select-option {
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: rgb(204, 224, 233);
-    height: 5vh;
-    font-size: large;
-    box-shadow: 2px 2px;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    background-color: rgb(204, 224, 233) !important;
+    height: 5vh !important;
+    font-size: 25px !important;
+    box-shadow: 2px 2px !important;
 }
 .select-option:hover, .select-option:focus {
     outline: none;
@@ -176,7 +178,7 @@ a {
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
-    font-size: larger;
+    font-size: 25px;
     color: white;
 }
 #analysis {
@@ -194,14 +196,14 @@ a {
 }
 #select-division {
     height: 5vh;
-    width: 20vh;
+    width: 25vh;
     font-size: medium;
 }
 #download-excel {
     border-radius: 10px;
     height: 5vh;
     width: 20vh;
-    font-size: medium;
+    font-size: 20px;
 }
 #misc-options {
     display: flex;
@@ -225,11 +227,11 @@ a {
     height: 90%;
 }
 
-#options-list {
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 13px;
-    margin-bottom: 5px;
+#options-list-mod2 {
+    text-align: center !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-size: 20px !important;
+    margin-bottom: 5px !important;
 }
 
 .wrapper {

@@ -106,7 +106,7 @@ a {
     align-items: center;
 }
 #message {
-    font-size: 25px;
+    font-size: 30px;
 }
 .select-option {
     border-radius: 10px;
@@ -160,9 +160,7 @@ a {
 #upload-table {
     text-align: center;
 }
-th, td {
-    padding: 10px;
-}
+
 .file-btn {
     background-color: burlywood;
     border: 2px solid black;
