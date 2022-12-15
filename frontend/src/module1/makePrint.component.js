@@ -8,6 +8,7 @@ export default class MakePrint extends Component {
     this.state = {
       student: [],
       sem: 0,
+      course:[]
     };
   }
 
@@ -47,6 +48,7 @@ export default class MakePrint extends Component {
               <tr>
                 <th>Student Name</th>
                 <th>Course</th>
+                <th>Remark</th>
               </tr>
             </thead>
             <tbody>
@@ -59,6 +61,7 @@ export default class MakePrint extends Component {
                           <tr key={cour._id}>
                             <td>{stud.studentName}</td>
                             <td>{cour.course}</td>
+                            <td>{cour.remark}</td>
                           </tr>
                         );
                       } else {

@@ -6,8 +6,15 @@ export default class MakeApproval extends Component{
         super(props);
         // this.updatestudent = this.updatestudent.bind(this)
         // this.deletestudent=this.deletestudent.bind(this)
-        this.state = ({ students: [] });
+        this.state = { students: [],remark:''};
     }
+
+    onChangeremark = (e) => {
+        this.setState({
+            remark: e.target.value
+        });
+    }
+
     componentDidMount() {
         axios.get('http://localhost:1999/api/makeUPMinor')
             .then(Response => {
@@ -22,7 +29,7 @@ export default class MakeApproval extends Component{
 
     updatestudent(id, cou) {
 
-        axios.post("http://localhost:1999/api/makeUpMinor/approveMakeup/" + id, { cou: cou })
+        axios.post("http://localhost:1999/api/makeUpMinor/approveMakeup/" + id, { cou: cou, remark :this.state?.remark })
             .then((res) => {
                 // console.log(res.data.data)
                 axios.get('http://localhost:1999/api/makeUpMinor')
@@ -53,7 +60,7 @@ export default class MakeApproval extends Component{
         })
     }
 
-    render() {
+    render(){
         return (
             <div>
                 <h3 align='center'>Applied Students</h3>
@@ -65,6 +72,7 @@ export default class MakeApproval extends Component{
                             <th>Course</th>
                             <th>Reason</th>
                             <th>Action</th>
+                            <th>Remark</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -85,6 +93,7 @@ export default class MakeApproval extends Component{
                                                         <button href="#" onClick={() => { this.updatestudent(student._id, cours.course) }} className="btn btn-secondary">Approve</button> |
                                                         <button href="#" onClick={()=>this.deletestudent(student._id , cours.course)} className="btn btn-secondary">Reject</button>
                                                     </td>
+                                                    <td><input type = {"text"} value={this.state.remark} required className="form-control" onChange={this.onChangeremark} placeholder="Enter Remark"></input></td>
                                                 </tr>
                                             )
                                         }

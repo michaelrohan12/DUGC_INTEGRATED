@@ -23,6 +23,7 @@ const makeUpMinorSchema = new mongoose.Schema({
         code:{type:String},
         approval:{type:Boolean,
         default: false},
+        remark : {type:String},
         Reject:{type:Boolean,default:false}
     }],
     reason:{
