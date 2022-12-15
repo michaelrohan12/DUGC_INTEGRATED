@@ -1,41 +1,46 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 // import './index.css';
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { Router } from "react-router";
-import Coordinator from "./Coordinator";
+import App from "./App";
 import Chairman from "./Chairman";
-import Login from "./login";
-import Navbar from "./components/navbar.components";
-import Print1 from "./components/print1.component";
 import Approval1 from "./components/approval1.component";
 import CourseList from "./components/course.components";
 import CourseForm from "./components/courseForm.components";
+import Navbar from "./components/navbar.components";
+import Print1 from "./components/print1.component";
+import Coordinator from "./Coordinator";
+import Login from "./login";
+import reportWebVitals from "./reportWebVitals";
 
 //Module 5 Routes
-import Shreyas from "./module5/Login";
 import Dashboard from "./module5/Dashboard";
 import Dashboard1 from "./module5/Dashboard1";
 import Generate from "./module5/Generate";
+import Shreyas from "./module5/Login";
 
 //Module 2 Routes
 import CourseCoordinator from "./module2/course-coordinator";
 import HomepageDugc from "./module2/homepage-dugc";
 
 //Module 3 Routes
-import Labanalysis from "./module3/labanalysis";
 import Labresultanalysis from "./module3/dugcpage5";
+import Labanalysis from "./module3/labanalysis";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 //Module 4 Routes
 import Home from "./module4/Home";
-import Theory from "./module4/Theory";
-import Upload from "./module4/Upload";
-import Theory1 from "./module4/Theory1";
 import Index from "./module4/Index.js";
 import "./module4/index.scss";
+import Theory from "./module4/Theory";
+import Theory1 from "./module4/Theory1";
+import Upload from "./module4/Upload";
+
+//Module 1 Routes
+import MakeApporval1 from "./module1/makeApproval.component";
+import Navbar1 from "./module1/navbar.components";
+import MakePrint1 from "./module1/makePrint1.component";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -67,7 +72,10 @@ root.render(
         <Route path="/see-index" element={<Index />}></Route>
         <Route path="/lab-analysis" element={<Labanalysis />}></Route>
 
-        <Route path="localhost:4000"></Route>
+        <Route path="/makeForm" element={<Navbar1 />}></Route>
+        <Route path="/makeApporval" element={<MakeApporval1 />}></Route>
+        <Route path="/makePrint" element={<MakePrint1 />}></Route>
+
         <Route
           path="/labresultanalysis"
           element={<Labresultanalysis />}

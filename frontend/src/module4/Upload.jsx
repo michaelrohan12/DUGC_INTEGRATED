@@ -111,7 +111,7 @@ function Abc() {
             </button>
           </form> */}
           <div style={{width:"20rem", maxWidth:"20rem"}}>
-          <form>
+          <form name="myform">
   <div class="form-group">
     <label for="exampleInputEmail1">Software Engineering</label>
     <input type="number" id="course1" name="course1" class="form-control" required/>
@@ -132,7 +132,7 @@ function Abc() {
     <label for="exampleInputEmail1">Total</label>
     <input type="number" id="course1" name="course1" class="form-control" required/>
   </div>
-  <button type="submit" class="btn btn-primary" onClick={(e) => shr(e)}>Submit</button>
+  <button type="submit" class="btn btn-primary" id="sub-btn" onClick={(e) => shr(e)}>Submit</button>
 </form>
           </div>
         </center>
