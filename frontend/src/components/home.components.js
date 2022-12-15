@@ -284,7 +284,7 @@ export default class Home extends Component{
     }
     render(){
         return(
-            <div>
+            <div style={{margin:"2rem"}}>
                 <h3 align='center'>Add new withdrawal application</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
@@ -310,7 +310,7 @@ export default class Home extends Component{
                         </select>
                     </div>
                     <div className="form-group">
-                        <table>
+                        <table className="" style={{marginTop:"0px", marginLeft:"16rem"}}>
                             <thead>
                                 <tr>
                                     <th style={{color:'black'}}>Course Name</th>
@@ -435,7 +435,7 @@ export default class Home extends Component{
                             {this.state.reason.map(function(x) {return <option key={x}>{x}</option>})}
                         </select>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group" style={{textAlign:"center"}}>
                         <br></br><input type={"submit"} value="Add new application" className="btn btn-primary"></input>
                     </div>
                 </form>

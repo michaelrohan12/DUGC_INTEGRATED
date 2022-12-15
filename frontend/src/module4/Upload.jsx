@@ -36,17 +36,31 @@ function Abc() {
     });
   };
   return (
-    <div className="see" style={{ border: "30px solid " }}>
+    <div className="see">
+          <div class="container-fluid7" style={{ paddingTop: "1rem", paddingBottom: "1rem", position: "sticky", top: "0" }}>
+                <div class="row7" style={{ display: "flex" }}>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ paddingRight: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2Fkle_logo.png?alt=media&token=77f3a631-91a5-40f1-9fca-16001e566cd2" alt="Scholarship" class="img-fluid mx-auto d-block float-xl-left float-lg-left float-md-left logoleft" />
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <b><h4 class="text-center17">Departmental Under Graduate Committee</h4></b>
+                        <h6 class="text-center27">School of Computer Science and Engineering</h6>
+                        <b><h7 class="text-center37">(For Academic Year 2022-23)</h7></b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ width: "10rem", paddingLeft: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2FKLES-Centenary-LOGO-PNG.png?alt=media&token=13cfe0d3-7384-4cfa-81e0-28f6395accdd" alt="" class="img-fluid mx-auto d-block float-xl-right float-lg-right float-md-right logoright" />
+                    </div>
+                </div>
+            </div>
       <div>
         <center>
           <h1
             className="vk1"
             style={{
-              marginLeft: "23%",
-              marginTop: "4rem",
+              marginLeft: "14%",
+              marginTop: "5.6rem",
               maxwidth: "50%",
-
-              backgroundColor: "#cce0e9",
+              color:"black"
             }}
           >
             <br />
@@ -55,12 +69,12 @@ function Abc() {
           <br />
           <br />
           <br />
-          <h2 className="vk" style={{ marginLeft: "-17%" }}>
+          <h4 className="vk" style={{  }}>
             Upload passing
-          </h2>
+          </h4>
           <br />
-
-          <form name="myform" style={{ paddingTop: "5rem" }}>
+{/* 
+          <form name="myform" style={{ paddingTop: "0rem" }}>
             <label style={{ marginRight: "30px" }}>Software Engineering </label>
             <input type="number" id="course1" name="course1" required />
             <br />
@@ -95,7 +109,32 @@ function Abc() {
             >
               Submit
             </button>
-          </form>
+          </form> */}
+          <div style={{width:"20rem", maxWidth:"20rem"}}>
+          <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Software Engineering</label>
+    <input type="number" id="course1" name="course1" class="form-control" required/>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Computer Networks - 1</label>
+    <input type="number" id="course1" name="course1" class="form-control" required/>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Machine Learning </label>
+    <input type="number" id="course1" name="course1" class="form-control" required/>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Web Technologies Lab</label>
+    <input type="number" id="course1" name="course1" class="form-control" required/>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Total</label>
+    <input type="number" id="course1" name="course1" class="form-control" required/>
+  </div>
+  <button type="submit" class="btn btn-primary" onClick={(e) => shr(e)}>Submit</button>
+</form>
+          </div>
         </center>
       </div>
     </div>

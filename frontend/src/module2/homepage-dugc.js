@@ -404,15 +404,23 @@ class HomepageDugc extends React.Component {
 
   render() {
   return (
-    <><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /><div id="main-box">
-      <img alt="kletech-logo" src="https://learn.kletech.ac.in/theme/image.php/university/theme/1665590115/logo" id="page-logo" />
-      {/* <nav id="nav-bar">
-      <a class="nav-bar-items" href="">DUGC </a> |
-      <a class="nav-bar-items" href="">Analysis</a> |
-      <a class="nav-bar-items" href="">Reports </a> |
-      <a class="nav-bar-items" href="">Extra</a>
-  </nav> */}
-      <h1>DUGC Dashboard</h1>
+    <>
+                  <div class="container-fluid7" style={{ paddingTop: "1rem", paddingBottom: "1rem", position: "sticky", top: "0" }}>
+                <div class="row7" style={{ display: "flex" }}>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ paddingRight: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2Fkle_logo.png?alt=media&token=77f3a631-91a5-40f1-9fca-16001e566cd2" alt="Scholarship" class="img-fluid mx-auto d-block float-xl-left float-lg-left float-md-left logoleft" />
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <b><h4 class="text-center17">Departmental Under Graduate Committee</h4></b>
+                        <h6 class="text-center27">School of Computer Science and Engineering</h6>
+                        <b><h7 class="text-center37">(For Academic Year 2022-23)</h7></b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ width: "10rem", paddingLeft: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2FKLES-Centenary-LOGO-PNG.png?alt=media&token=13cfe0d3-7384-4cfa-81e0-28f6395accdd" alt="" class="img-fluid mx-auto d-block float-xl-right float-lg-right float-md-right logoright" />
+                    </div>
+                </div>
+            </div>
+      <h1 style={{marginTop:"8rem", marginLeft:"33rem"}}>DUGC Dashboard</h1>
       <div>
         {/* <button id="user">Profile <i className="fa fa-user" /></button>
         <button id="logout">Logout <i className="fa fa-sign-out" /></button> */}
@@ -429,12 +437,13 @@ class HomepageDugc extends React.Component {
           </button>
         </div>
       </div>
-      <div id="contents">
-        <div id="selections">
+      <div id="contents" style={{marginTop:"5rem"}}>
+        <div id="selections" style={{border:"1px solid black", borderRadius:"5px", boxShadow:"none", padding:"2rem"}}>
           <section>
-            <p id='message'>Select Options to View Analysis</p>
+            <p id='message' style={{color:"black", textAlign:"center"}}>Select Options to View Analysis</p>
             <form name="options" onSubmit={this.check}>
-            <select id="year" onChange={(e) => this.getYear(e)} className="select-option">
+            <div style={{display:"space-around", marginBottom:"1rem"}}>
+            <select style={{background:"black", color:"white"}} id="year" onChange={(e) => this.getYear(e)} className="select-option">
                 <option disabled selected>Year</option>
                 <option value={2022}>2022</option>
                 <option value={2021}>2021</option>
@@ -442,7 +451,7 @@ class HomepageDugc extends React.Component {
                 <option value={2019}>2019</option>
                 <option value={2018}>2018</option>
               </select>
-              <select className="select-option" onChange={(e) => this.getSem(e,document.getElementById('courses'))} id="sem" required>
+              <select style={{background:"black", color:"white"}} className="select-option" onChange={(e) => this.getSem(e,document.getElementById('courses'))} id="sem" required>
                 <option disabled selected>Semester</option>
                 <option value={3}>3rd</option>
                 <option value={4}>4th</option>
@@ -458,14 +467,14 @@ class HomepageDugc extends React.Component {
                 <option value="D">D</option>
                 <option value="E">E</option>
               </select> */}
-             <select className="select-option" onChange={(e) => this.getAssess(e)} id="acti" required>
+             <select style={{background:"black", color:"white"}} className="select-option" onChange={(e) => this.getAssess(e)} id="acti" required>
                 <option disabled selected>Assessment</option>
                 <option value={"M1"}>Minor-1</option>
                 <option value={"M2"}>Minor-2</option>
                 <option value={"CIE"}>C.I.E</option>
                 <option value={"lab"}>Lab</option>
               </select>
-              <select id="courses" onChange={(e) => this.getCourse(e)} className="select-option">
+              <select style={{background:"black", color:"white"}}  id="courses" onChange={(e) => this.getCourse(e)} className="select-option">
                 <option disabled selected>Choose Course</option>
                 {/* <option value={'Computer Networks - 1'}>Computer Networks - 1</option>
                 <option value={'Machine Learning'}>Machine Learning</option>
@@ -474,7 +483,7 @@ class HomepageDugc extends React.Component {
                 <option value={'Software Engineering'}>Software Engineering</option>
                 <option value={'System Software'}>System Software</option> */}
               </select>
-              <select className="select-option" onChange={(e) => this.getChoice(e)} id="misc-options">
+              <select style={{background:"black", color:"white", margin:"4px"}} className="select-option" onChange={(e) => this.getChoice(e)} id="misc-options">
                 <option disabled selected>Choose Option</option>
                 <option value="xlxs">Export Excel Sheet</option>
                 {/* <option value="comp">Compare Results</option> */}
@@ -482,7 +491,11 @@ class HomepageDugc extends React.Component {
                 <option value="tabl">View Table</option>
                 <option value="consoliData">View Consolidated Table</option>
               </select>
-              <button id="options-btn" type="submit">Analyse</button>
+              </div>
+              <div style={{textAlign:"center"}}>
+
+              <button id="" className='btn btn-primary' type="submit">Analyse</button>
+              </div>
             </form>
           </section>
         </div>
@@ -501,7 +514,7 @@ class HomepageDugc extends React.Component {
           {this.state.showConsoliTable && <ConsolTable />}
         </div>
       </div>
-    </div></>
+    </>
   );
   }
 }

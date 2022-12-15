@@ -177,38 +177,27 @@ const Coordinator = () => {
           <h3 class="text-center">School of Computer Science and Engineering</h3>
           <h5 class="text-center">(For Academic Year 2022-23)</h5>
     </div> */}
-      <div class="container-fluid7">
-        <div class="row7">
+
+      <div class="container-fluid7" style={{ paddingTop: "1rem", paddingBottom: "1rem", position: "sticky", top: "0" }}>
+        <div class="row7" style={{ display: "flex" }}>
           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2Fkle_logo.png?alt=media&token=77f3a631-91a5-40f1-9fca-16001e566cd2"
-              alt="Scholarship"
-              class="img-fluid mx-auto d-block float-xl-left float-lg-left float-md-left logoleft"
-            />
+            <img style={{ paddingRight: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2Fkle_logo.png?alt=media&token=77f3a631-91a5-40f1-9fca-16001e566cd2" alt="Scholarship" class="img-fluid mx-auto d-block float-xl-left float-lg-left float-md-left logoleft" />
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <b>
-              <h4 class="text-center17">
-                Departmental Under Graduate Committee
-              </h4>
-            </b>
-            <h6 class="text-center27">
-              School of Computer Science and Engineering
-            </h6>
-            <b>
-              <h7 class="text-center37">(For Academic Year 2022-23)</h7>
-            </b>
+            <b><h4 class="text-center17">Departmental Under Graduate Committee</h4></b>
+            <h6 class="text-center27">School of Computer Science and Engineering</h6>
+            <b><h7 class="text-center37">(For Academic Year 2022-23)</h7></b>
           </div>
-          {/* <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2FKLES-Centenary-LOGO-PNG.png?alt=media&token=13cfe0d3-7384-4cfa-81e0-28f6395accdd" alt="" class="img-fluid mx-auto d-block float-xl-right float-lg-right float-md-right logoright"/>
-            </div> */}
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <img style={{ width: "10rem", paddingLeft: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2FKLES-Centenary-LOGO-PNG.png?alt=media&token=13cfe0d3-7384-4cfa-81e0-28f6395accdd" alt="" class="img-fluid mx-auto d-block float-xl-right float-lg-right float-md-right logoright" />
+          </div>
         </div>
       </div>
 
       <Tabs className="Tabs">
         <b>
-          <TabList>
-            <Tab onClick={() => window.open("http://localhost:4000")}>
+          <TabList style={{ boxShadow: " 0px 2px 2px 0px rgb(0 0 0 / 10%)" }}>
+            <Tab onClick={() => window.open("http://localhost:4000")} style={{ background: "#a0a3a4" }}>
               DUGC Makeup Minor Approval
             </Tab>
 
@@ -223,7 +212,7 @@ const Coordinator = () => {
             </Tab>
             <Tab>
               <Link to="/login321">
-                Ineligibility List Approval (Theory & Lab)
+                Ineligibility List Approval
               </Link>
             </Tab>
             <Tab>
@@ -233,14 +222,14 @@ const Coordinator = () => {
         </b>
       </Tabs>
 
-      <div class="grid-container7">
+      <div class="grid-container7" style={{ margin: "auto", boxShadow: "none" }}>
         <div class="grid-child17">
-          <h4 class="text-left7">
-            <i class="fa fa-pencil-square orange-text" aria-hidden="true"></i>
+          <h4 class="text-left7" style={{ boxShadow: "none", textAlign: "center", color: "black" }}>
+            <i class="fa fa-pencil-square orange-text" aria-hidden="true" style={{ paddingRight: "1rem", color: "red" }}></i>
             Circulars
           </h4>
 
-          <div class="divScroll7">
+          <div class="divScroll7" style={{ padding: "1rem", border: "1px solid black", borderRadius: "5px" }}>
             <b> DUGC meeting Circular Template</b>
             {/* <button class='buttonD'onClick={onButtonClick1}>
 
@@ -281,12 +270,12 @@ const Coordinator = () => {
         </div>
 
         <div class="grid-child17">
-          <h4 class="text-left7">
-            <i class="fa fa-pencil-square orange-text" aria-hidden="true"></i>
+          <h4 class="text-left7" style={{ boxShadow: "none", textAlign: "center", color: "black" }}>
+            <i class="fa fa-pencil-square orange-text" aria-hidden="true" style={{ paddingRight: "1rem", color: "red" }}></i>
             Minutes of Meeting
           </h4>
 
-          <div class="divScroll7">
+          <div class="divScroll7" style={{ padding: "1rem", border: "1px solid black", borderRadius: "5px" }}>
             <b> Theory marks approval template</b>
             {/* <button class='buttonD'onClick={onButtonClick3}>
                     Download
@@ -356,31 +345,36 @@ const Coordinator = () => {
       </div>
 
       <div class="remainder7">
-        <button class="buttonR1">
+      <div style={{marginBottom:"2rem", marginLeft:"40rem", color:"white"}}>
+        <button class="btn btn-primary">
           <b>
-            <a href="http://localhost:5000/">Send Reminder</a>
+            <a style={{color:"white"}} href="http://localhost:5000/">Send Reminder</a>
           </b>
         </button>
-        <button class="buttonR1" onClick={uploadImage}>
-          <b>Upload Circular</b>
-        </button>
-        <input
-          type="file"
-          class="file"
-          onChange={(event) => {
-            setImgUpload(event.target.files[0]);
-          }}
-        ></input>
-        <button class="buttonR2" onClick={uploadImage1}>
-          <b>Upload minutes</b>
-        </button>
-        <input
-          type="file"
-          class="file"
-          onChange={(event) => {
-            setImgUpload1(event.target.files[0]);
-          }}
-        ></input>
+      </div>
+        <div class="" style={{display:"flex", marginLeft:"22rem"}}>
+          <button class="btn btn-primary" onClick={uploadImage} style={{marginRight:"1rem"}}>
+            <b>Upload Circular</b>
+          </button>
+          <input
+            type="file"
+            class=""
+            onChange={(event) => {
+              setImgUpload(event.target.files[0]);
+            }}
+          ></input>
+          <button class="btn btn-primary" onClick={uploadImage1} style={{marginRight:"1rem"}}>
+            <b>Upload minutes</b>
+          </button>
+          <input
+            type="file"
+            class=""
+            onChange={(event) => {
+              setImgUpload1(event.target.files[0]);
+            }}
+          ></input>
+        </div>
+
         <br></br>
       </div>
     </div>

@@ -174,17 +174,22 @@ class CourseCoordinator extends Component {
   render() {
     return (
       <>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        />
-        <div id="main-box">
-          <img
-            alt="kletech-logo"
-            src="https://learn.kletech.ac.in/theme/image.php/university/theme/1665590115/logo"
-            id="page-logo"
-          />
-          <h1>Course Co-ordinator</h1>
+              <div class="container-fluid7" style={{ paddingTop: "1rem", paddingBottom: "1rem", position: "sticky", top: "0" }}>
+                <div class="row7" style={{ display: "flex" }}>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ paddingRight: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2Fkle_logo.png?alt=media&token=77f3a631-91a5-40f1-9fca-16001e566cd2" alt="Scholarship" class="img-fluid mx-auto d-block float-xl-left float-lg-left float-md-left logoleft" />
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <b><h4 class="text-center17">Departmental Under Graduate Committee</h4></b>
+                        <h6 class="text-center27">School of Computer Science and Engineering</h6>
+                        <b><h7 class="text-center37">(For Academic Year 2022-23)</h7></b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ width: "10rem", paddingLeft: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2FKLES-Centenary-LOGO-PNG.png?alt=media&token=13cfe0d3-7384-4cfa-81e0-28f6395accdd" alt="" class="img-fluid mx-auto d-block float-xl-right float-lg-right float-md-right logoright" />
+                    </div>
+                </div>
+            </div>
+          <h1 style={{marginTop:"8rem", marginLeft:"33rem"}}>Course Co-ordinator</h1>
           <div>
             {/* <button id="user">Profile <i className="fa fa-user" /></button>
         <button id="logout">Logout <i className="fa fa-sign-out" /></button> */}
@@ -202,19 +207,21 @@ class CourseCoordinator extends Component {
               </button>
             </div>
           </div>
-          <div id="contents1">
-            <div id="selections1">
+          <div id="contents1" style={{marginTop:"5rem", marginLeft:"25rem"}}>
+            <div id="selections1" style={{border:"1px solid black", borderRadius:"5px", boxShadow:"none", padding:"2rem"}}>
               <section>
-                <p id="message">Select Options to Upload Files</p>
+                <p id="message" style={{color:"black", textAlign:"center"}}>Select Options to Upload Files</p>
                 <form name="options">
                   {/* <select name="semester" class="select-option">
                 <option value="Even">Even</option>
                 <option value="Odd">Odd</option>
             </select> */}
+            <div style={{display:"space-around", marginBottom:"1rem"}}>
                   <select
                     id="year"
                     onChange={(e) => this.getYear(e)}
                     className="select-option"
+                    style={{background:"black", color:"white"}}
                   >
                     <option disabled selected>
                       Year
@@ -231,6 +238,7 @@ class CourseCoordinator extends Component {
                       this.getSem(e, document.getElementById("courses"))
                     }
                     className="select-option"
+                    style={{background:"black", color:"white"}}
                   >
                     <option disabled selected>
                       Semester
@@ -245,6 +253,7 @@ class CourseCoordinator extends Component {
                     id="division"
                     onChange={(e) => this.getDiv(e)}
                     className="select-option"
+                    style={{background:"black", color:"white"}}
                   >
                     <option disabled selected>
                       Division
@@ -259,6 +268,7 @@ class CourseCoordinator extends Component {
                     id="courses"
                     onChange={(e) => this.getCourse(e)}
                     className="select-option"
+                    style={{background:"black", color:"white"}}
                   >
                     <option disabled selected>
                       Course
@@ -274,6 +284,7 @@ class CourseCoordinator extends Component {
                     className="select-option"
                     onChange={(e) => this.getAssess(e)}
                     id="acti"
+                    style={{background:"black", color:"white"}}
                     required
                   >
                     <option disabled selected>
@@ -284,24 +295,29 @@ class CourseCoordinator extends Component {
                     <option value={"CIE"}>C.I.E</option>
                     <option value={"lab"}>Lab</option>
                   </select>
+                  </div>
                   <input
                     type="file"
-                    id="upload-file"
-                    className="button-mod-2 xls select-option"
+                    id=""
+                    className=""
                     onChange={(e) => this.myfilef(e)}
                   />
+                  <div style={{textAlign:"center", marginTop:"1rem"}}>
+
                   <input
                     type="button"
-                    id="options-btn"
+                    id=""
+                    className="btn btn-primary"
                     defaultValue="Submit"
                     onClick={(e) => this.handlefile(e)}
+
                   />
+                  </div>
                   <p id="test" />
                 </form>
               </section>
             </div>
           </div>
-        </div>
       </>
     );
   }

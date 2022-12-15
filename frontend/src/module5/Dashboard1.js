@@ -250,10 +250,25 @@ useEffect(() => {
 }, [])
 
         return (
-          <div class="container" style={{maxWidth:"100vw",marginLeft:"3rem", backgroundColor: "rgb(204, 224, 233)"}}>
-          <img className="" src={pic} style={{marginLeft:"40rem"}} />
-            <table class="table" style={{maxHeight: "500px", maxWidth: "1100px", width:"1100px", height: "500px", overflow: "scroll", display: 'block', color:"black", backgroundColor:"white"
-            , marginTop:"6rem",marginLeft:"19rem"}}>
+          <>
+                                <div class="container-fluid7" style={{ paddingTop: "1rem", paddingBottom: "1rem", position: "sticky", top: "0" }}>
+                <div class="row7" style={{ display: "flex" }}>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ paddingRight: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2Fkle_logo.png?alt=media&token=77f3a631-91a5-40f1-9fca-16001e566cd2" alt="Scholarship" class="img-fluid mx-auto d-block float-xl-left float-lg-left float-md-left logoleft" />
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <b><h4 class="text-center17">Departmental Under Graduate Committee</h4></b>
+                        <h6 class="text-center27">School of Computer Science and Engineering</h6>
+                        <b><h7 class="text-center37">(For Academic Year 2022-23)</h7></b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ width: "10rem", paddingLeft: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2FKLES-Centenary-LOGO-PNG.png?alt=media&token=13cfe0d3-7384-4cfa-81e0-28f6395accdd" alt="" class="img-fluid mx-auto d-block float-xl-right float-lg-right float-md-right logoright" />
+                    </div>
+                </div>
+            </div>
+          <div class="container" style={{maxWidth:"",marginLeft:"3rem", background:"rgb(234 238 241)"}}>
+            <table class="table" style={{maxHeight: "500px", maxWidth: "70vw", width:"70vw", height: "500px", overflow: "scroll", display: 'block', color:"black", backgroundColor:"white"
+            , marginTop:"6rem",marginLeft:"8rem"}}>
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">Sl.No</th>
@@ -317,13 +332,14 @@ useEffect(() => {
                
               </tbody>
             </table>
-
-            <div class="container" style={{marginLeft:"50rem"}}>
+            
+            <div style={{textAlign:"center", marginLeft:"0rem"}}>
             <button type="button" className="btn btn-primary btn-md" onClick={() => tableToCSV()} >
               download CSV
             </button> 
             </div>
           </div>
+          </>
         )
       };
 export default Dashboard1;

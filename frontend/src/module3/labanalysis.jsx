@@ -68,57 +68,32 @@ function Labanalysis({ setCourse }) {
 
   return (
     <>
-      <meta charSet="UTF-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "\n      *{font-size:105%}\n    body{\n          background-color:white;;\n        } \n #wrapper{ height: 100px; width: 100px;}      h1{\n          background-color: rgb(82, 139, 139);;\n          color:black;\n        }\n        h3{background-color: white;}\n        ",
-        }}
-      />
-      <title>Document</title>
+              <div class="container-fluid7" style={{ paddingTop: "1rem", paddingBottom: "1rem", position: "sticky", top: "0" }}>
+                <div class="row7" style={{ display: "flex" }}>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ paddingRight: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2Fkle_logo.png?alt=media&token=77f3a631-91a5-40f1-9fca-16001e566cd2" alt="Scholarship" class="img-fluid mx-auto d-block float-xl-left float-lg-left float-md-left logoleft" />
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <b><h4 class="text-center17">Departmental Under Graduate Committee</h4></b>
+                        <h6 class="text-center27">School of Computer Science and Engineering</h6>
+                        <b><h7 class="text-center37">(For Academic Year 2022-23)</h7></b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ width: "10rem", paddingLeft: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2FKLES-Centenary-LOGO-PNG.png?alt=media&token=13cfe0d3-7384-4cfa-81e0-28f6395accdd" alt="" class="img-fluid mx-auto d-block float-xl-right float-lg-right float-md-right logoright" />
+                    </div>
+                </div>
+            </div>
 
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <img
-              src={logo1}
-              alt="Scholarship"
-              class="img-fluid mx-auto d-block float-xl-left float-lg-left float-md-left logoleft"
-            />
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <b>
-              <h4 class="text-center1">
-                Department of Under Graduate Committee
-              </h4>
-            </b>
-            <h6 class="text-center2">
-              School of Computer Science and Engineering
-            </h6>
-            <b>
-              <h7 class="text-center3">(For Academic Year 2022-23)</h7>
-            </b>
-          </div>
-          <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 col-md-12 row">
-            <img
-              src={kle_cen}
-              alt=""
-              class="img-fluid mx-auto d-block float-xl-right float-lg-right float-md-right logoright"
-            />
-          </div>
-        </div>
-      </div>
+      <center style={{marginTop:"0px"}}>
+        <center >
+        <div style={{display:"flex"}}>
 
-      <center>
-        <center>
-          <h5 className="classcc">
+        
             <div className="classcc">
               <div className="classcc">
-                <section className="classcc">
+
                   <form className="classcc">
-                    <select id="year" className=" classcc">
+                    <select id="year" style={{margin:"1rem"}} className=" btn btn-primary">
                       <option disabled selected className="classcc">
                         Year
                       </option>
@@ -133,6 +108,7 @@ function Labanalysis({ setCourse }) {
                     <select
                       id="sem"
                       required
+                      className="btn btn-primary"
                       onChange={(e) => {
                         setSelected(e.target.value);
                         changeSelectedData(e.target.value);
@@ -150,7 +126,7 @@ function Labanalysis({ setCourse }) {
                       <option value={8}>8</option>
                     </select>
                   </form>
-                </section>
+
               </div>
             </div>
             {/* {contacts.map((el) => {
@@ -166,17 +142,15 @@ function Labanalysis({ setCourse }) {
                 navigate("/");
                 console.log("json.name");
               }}
+              style={{height:"42px", marginTop:"1rem", marginRight:"0px"}}
             />
-          </h5>
-          <div
-            style={{ backgroundColor: "#000000", height: 10, width: "100%" }}
-          />
+            </div>
           {/*         /////////////////////////////////////////////// */}
           <br />
           <br />
           <br />
-          <div className="classcc" id="suyash">
-            <Table singleLine className="wp-table table table-striped ">
+          <div className="classcc" id="suyash" style={{marginTop:"0px", width:"90vw", maxWidth:"90vw", marginRight:"2rem"}}>
+            <Table singleLine className="wp-table table table-striped " style={{marginTop:"0px"}}>
               <Table.Header>
                 <Table.Row className="table info">
                   <Table.HeaderCell>Course Code</Table.HeaderCell>

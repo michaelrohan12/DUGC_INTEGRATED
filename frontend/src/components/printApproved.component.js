@@ -45,7 +45,7 @@ export default class Display extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{margin:"2rem"}}>
         <br></br>
         <div className="form-group">
           <label>Sem</label>
