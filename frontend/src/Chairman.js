@@ -82,41 +82,41 @@ const Coordinator=()=>
           <h5 class="text-center">(For Academic Year 2022-23)</h5>
     </div> */}
 
-<div class="container-fluid7">
-        <div class="row7">
-            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2Fkle_logo.png?alt=media&token=77f3a631-91a5-40f1-9fca-16001e566cd2"alt="Scholarship"class="img-fluid mx-auto d-block float-xl-left float-lg-left float-md-left logoleft"/>
+    <div class="container-fluid7" style={{ paddingTop: "1rem", paddingBottom: "1rem", position: "sticky", top: "0" }}>
+                <div class="row7" style={{ display: "flex" }}>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ paddingRight: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2Fkle_logo.png?alt=media&token=77f3a631-91a5-40f1-9fca-16001e566cd2" alt="Scholarship" class="img-fluid mx-auto d-block float-xl-left float-lg-left float-md-left logoleft" />
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <b><h4 class="text-center17">Departmental Under Graduate Committee</h4></b>
+                        <h6 class="text-center27">School of Computer Science and Engineering</h6>
+                        <b><h7 class="text-center37">(For Academic Year 2022-23)</h7></b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ width: "10rem", paddingLeft: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2FKLES-Centenary-LOGO-PNG.png?alt=media&token=13cfe0d3-7384-4cfa-81e0-28f6395accdd" alt="" class="img-fluid mx-auto d-block float-xl-right float-lg-right float-md-right logoright" />
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <b><h4 class="text-center17">Departmental Under Graduate Committee</h4></b>
-                <h6 class="text-center27">School of Computer Science and Engineering</h6>
-                <b><h7 class="text-center37">(For Academic Year 2022-23)</h7></b>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2FKLES-Centenary-LOGO-PNG.png?alt=media&token=13cfe0d3-7384-4cfa-81e0-28f6395accdd" alt="" class="img-fluid mx-auto d-block float-xl-right float-lg-right float-md-right logoright"/>
-            </div>
-        </div>
-    </div>
 
-    <Tabs className="Tabs">
+    <Tabs className="Tabs" style={{boxShadow:" 0px 2px 2px 0px rgb(0 0 0 / 10%)"}}>
     <b><TabList>
-    <Tab>DUGC Makeup Minor Approval</Tab>
+    <Tab><Link to='/theory-analysis'>DUGC Makeup Minor Approval</Link> </Tab>
     <Tab>
                    <Link to='/theory-analysis'>Theory Analysis</Link> </Tab>
                   <Tab><Link to="/lab-analysis"> Lab Result Analysis</Link></Tab>
          <Tab>SEE Result Analysis</Tab>
-         <Tab>Ineligibility List Approval (Theory & Lab)</Tab>
+         <Tab>Ineligibility List Approval</Tab>
          <Tab>
             <Link to = '/courseList'>Edit Course</Link>
         </Tab>
        </TabList></b>
        </Tabs>
 
-    <div class="grid-container7">
+    <div class="grid-container7" style={{margin:"auto", boxShadow:"none"}}>
         <div class="grid-child17">
             
 
-            <div class="divScroll7">
+            <div class="divScroll7" style={{padding:"1rem", border:"1px solid black", borderRadius:"5px"}}>
                     <h4 class="text-left17">
                     <i aria-hidden="true"></i>View circulars here
                 </h4>
@@ -135,7 +135,7 @@ const Coordinator=()=>
         <div class="grid-child17">
             
 
-            <div class="divScroll7">
+            <div class="divScroll7" style={{padding:"1rem", border:"1px solid black", borderRadius:"5px"}}>
 
         
             
@@ -146,15 +146,18 @@ const Coordinator=()=>
               
                 {/* <a href="https://onedrive.live.com/edit.aspx?resid=457A57C6040541F1!656&ithint=file%2cdocx"><i class="fa fa-file"></i>  Meeting for Minor 1 marks approval : 1-10-2022</a><br></br>
                  */}
-                 <b>View approved withdrawal student list</b>
+                 <div style={{paddingTop:"2rem"}}>
+
+                 <p style={{textAlign:"center", color:"black"}}>View approved withdrawal student list</p>
                 {/* <button class='buttonD'onClick={onButtonClick7}>
                     Download
                 </button> */}
-                <a href={doc8}>download</a>
+                <a href={doc8} className="btn btn-primary" style={{color:"white", marginLeft:"11rem"}}>download</a>
                  {imgList1.map((url)=>{
                   return <div><a href={url}><h5>Download the latest minutes of meeting <img src='https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2Fnew5.gif?alt=media&token=c17ff8db-a176-41de-8aba-c6775aa037df'></img></h5></a><br/></div>
 
                   })}
+                 </div>
     
             </div>     
         </div>

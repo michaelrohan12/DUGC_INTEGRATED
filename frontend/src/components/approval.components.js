@@ -58,10 +58,10 @@ export default class Approve extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{margin:"2rem"}}>
                 <h3 align='center'>Applied Students</h3>
-                <table className="table">
-                    <thead className="thead-light">
+                <table className="" style={{marginTop:"1rem", marginLeft:"14rem"}}>
+                    <thead className="">
                         <tr>
                             <th>Name</th>
                             <th>USN</th>
@@ -87,8 +87,9 @@ export default class Approve extends Component {
                                                     <td style={{color:'black'}}>{cours.ISA_marks}</td>
                                                     <td style={{color:'black'}}>{cours.attendence}</td>
                                                     <td>
-                                                        <button href="#" onClick={() => { this.updatestudent(student._id, cours.course) }} className="btn btn-secondary">Approve</button> |
-                                                        <button href="#" onClick={()=>this.deletestudent(student._id , cours.course)} className="btn btn-secondary">Reject</button>
+                                                        <button href="#" onClick={() => { this.updatestudent(student._id, cours.course) }} className="btn btn-primary">Approve</button> 
+                                                        |
+                                                        <button href="#" onClick={()=>this.deletestudent(student._id , cours.course)} className="btn btn-outline-dark">Reject</button>
                                                     </td>
                                                 </tr>
                                             )

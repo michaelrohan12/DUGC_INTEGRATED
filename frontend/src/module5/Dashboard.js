@@ -25,15 +25,27 @@ const Dashboard = () => {
     navigate('/Dashboard1', {state:{details: courseDetails}});
   }
   return (
-    <div class="container2">
+    <>
+                          <div class="container-fluid7" style={{ paddingTop: "1rem", paddingBottom: "1rem", position: "sticky", top: "0", marginBottom:"2rem" }}>
+                <div class="row7" style={{ display: "flex" }}>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ paddingRight: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2Fkle_logo.png?alt=media&token=77f3a631-91a5-40f1-9fca-16001e566cd2" alt="Scholarship" class="img-fluid mx-auto d-block float-xl-left float-lg-left float-md-left logoleft" />
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <b><h4 class="text-center17">Departmental Under Graduate Committee</h4></b>
+                        <h6 class="text-center27">School of Computer Science and Engineering</h6>
+                        <b><h7 class="text-center37">(For Academic Year 2022-23)</h7></b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <img style={{ width: "10rem", paddingLeft: "20px" }} src="https://firebasestorage.googleapis.com/v0/b/dugc7-caf3d.appspot.com/o/ref_img%2FKLES-Centenary-LOGO-PNG.png?alt=media&token=13cfe0d3-7384-4cfa-81e0-28f6395accdd" alt="" class="img-fluid mx-auto d-block float-xl-right float-lg-right float-md-right logoright" />
+                    </div>
+                </div>
+            </div>
+    <div class="container2" style={{marignTop:"1rem"}}>
       <div>
-        <img src={pic} className="dashimg" />
-      </div>
-      <div>
-      <h3 class='ineligible'>Ineligibility list</h3>
-      <h4>Semester: <p>{semVal}</p></h4>
-      <h4>Course: <p>{courseVal}</p></h4>
-        <table className="table" style={{height:"70vh", maxHeight:"70vh", overflow:"scroll"}}>
+      <h4>Semester: <span style={{color:"red"}}>{semVal}</span></h4>
+      <h4>Course: <span style={{color:"red"}}>{courseVal}</span></h4>
+        <table className="table" style={{height:"30vh", maxHeight:"70vh", overflow:"scroll"}}>
           <thead className="thead-dark">
             <tr>
               <th>SL</th>
@@ -68,6 +80,7 @@ const Dashboard = () => {
         Generate the Ineligibility list
       </button>
     </div>
+    </>
   );
 };
 export default Dashboard;

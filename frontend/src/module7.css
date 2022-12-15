@@ -30,7 +30,7 @@
 
 .main7
 {
-  background-color:  rgb(204, 224, 233);
+  /* background-color:  rgb(204, 224, 233); */
 }
 
 .container-fluid7
@@ -70,12 +70,12 @@ height: 90%;
 
 .heading7
 {
-  background-color:rgb(88, 194, 244);
+  /* background-color:rgb(88, 194, 244);
   width:230px;
   padding:10px;
   height:50px;
   font-size:20px;
-  box-shadow:0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow:0px 5px 10px 0px rgba(0, 0, 0, 0.5); */
 }
 
 .buttonW
@@ -145,11 +145,10 @@ height: 90%;
 .text-left17
 {
   margin-top: 0%;
-  font-size: 30px;
+  font-size: 28px;
   height: 40px;
-  box-shadow:0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-  background-color: rgb(204, 224, 233);
-  color:orangered;
+  text-align: center;
+  color:black;
 }
 
 .divScroll7
