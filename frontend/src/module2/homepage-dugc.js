@@ -40,6 +40,7 @@ class HomepageDugc extends React.Component {
       showDownload: false,
       showTable1: false,
       showConsoliTable: false,
+      showConsoliTable1: false, 
       showTable2:false
     }
   }
@@ -195,6 +196,7 @@ class HomepageDugc extends React.Component {
               this.setState({showTable2: false})
               this.setState({ showDownload: false });
               this.setState({ showConsoliTable: false });
+              this.setState({ showConsoliTable1:false});
               this.setState({showChart :!this.state.showChart});
             }
             else{
@@ -240,6 +242,7 @@ class HomepageDugc extends React.Component {
             this.setState({showTable2: false})
             this.setState({ showDownload: false });
             this.setState({ showConsoliTable: false });
+            this.setState({ showConsoliTable1:false});
             this.setState({showChart :!this.state.showChart});
           }
           else{
@@ -269,6 +272,7 @@ class HomepageDugc extends React.Component {
         this.setState({showTable2: false})
         this.setState({ showChart: false });
         this.setState({ showConsoliTable: false });
+        this.setState({ showConsoliTable1:false});
         this.setState({showDownload :!this.state.showDownload});
       }
        
@@ -316,6 +320,7 @@ class HomepageDugc extends React.Component {
               this.setState({showChart: false})
               this.setState({ showDownload: false });
               this.setState({ showConsoliTable: false });
+              this.setState({ showConsoliTable1:false});
               this.setState({showTable2 :!this.state.showTable2});
               this.setState({showTable1: false})
             }
@@ -332,6 +337,7 @@ class HomepageDugc extends React.Component {
               this.setState({showChart: false})
               this.setState({ showDownload: false });
               this.setState({ showConsoliTable: false });
+              this.setState({ showConsoliTable1:false});
               this.setState({showTable2: false})
               this.setState({showTable1 :!this.state.showTable1});
             }
@@ -387,20 +393,39 @@ class HomepageDugc extends React.Component {
         await this.dataRetrieval(dataIDS)
       }
       
-         
-      if(this.state.showConsoliTable === true){
-        this.setState({ showConsoliTable: false })
-
-        await this.sleep(500)
-
-        this.setState({ showConsoliTable: true })
+      if(assets_global === 'CIE'){
+        if(this.state.showConsoliTable === true){
+          this.setState({ showConsoliTable: false })
+  
+          await this.sleep(500)
+  
+          this.setState({ showConsoliTable: true })
+        }
+        else{
+          this.setState({showChart: false})
+          this.setState({ showDownload: false });
+          this.setState({ showTable1: false });
+          this.setState({ showTable2: false });
+          this.setState({ showConsoliTable1: false });
+          this.setState({showConsoliTable :!this.state.showConsoliTable});
+        }
       }
       else{
-        this.setState({showChart: false})
-        this.setState({ showDownload: false });
-        this.setState({ showTable1: false });
-        this.setState({ showTable2: false });
-        this.setState({showConsoliTable :!this.state.showConsoliTable});
+        if(this.state.showConsoliTable1 === true){
+          this.setState({ showConsoliTable1: false })
+  
+          await this.sleep(500)
+  
+          this.setState({ showConsoliTable1: true })
+        }
+        else{
+          this.setState({showChart: false})
+          this.setState({ showDownload: false });
+          this.setState({ showTable1: false });
+          this.setState({ showTable2: false });
+          this.setState({ showConsoliTable: false });
+          this.setState({showConsoliTable1 :!this.state.showConsoliTable1});
+        }
       }
       
       console.log(tableData);
@@ -532,6 +557,7 @@ class HomepageDugc extends React.Component {
           {this.state.showTable1 && <Table1 />}
           {this.state.showTable2 && <Table2 />}
           {this.state.showConsoliTable && <ConsolTable />}
+          {this.state.showConsoliTable1 && <ConsolTable1 />}
         </div>
       </div>
     </div></>
@@ -1226,6 +1252,221 @@ function ConsolTable(){
         <td>{tableData[3][4]['E_count']}</td>
         <td>{tableData[3][4]['F_count']}</td>
         <td>{tableData[3][4]['Total']}</td>
+        <td>{tableData[3][4]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][9]['class_avg'].toFixed(2)}</td>
+      </tr>
+      
+  
+</table>
+    </div>
+  )
+}
+
+function ConsolTable1(){
+  return (
+    <div style={{ "height": "90%", "width": "90%", "font-size": "20px"}}>
+<table id='consolidated-table'>
+  <tr style={{color: "black"}}>
+    <th style={{"text-align":"center"}} rowspan="3">SL.No</th>
+    <th style={{"text-align":"center"}} rowspan="3">Subject Name</th>
+    <th style={{"text-align":"center"}} colspan="50">No of students scoring marks</th>    
+  </tr>
+        <tr style={{ color: "black" }}>
+    <td colspan="10">A-div</td>
+    <td colspan="10">B-div</td>
+    <td colspan="10">C-div</td>
+    <td colspan="10">D-div</td>
+    <td colspan="10">E-div</td>
+  </tr>
+        <tr style={{ color: "black" }}>
+  	<td>S</td>
+    <td>A</td>
+  	<td>B</td>
+  	<td>C</td>
+  	<td>D</td>
+    <td>class average</td>
+    <td>previous class average</td>
+  	<td>S</td>
+    <td>A</td>
+  	<td>B</td>
+  	<td>C</td>
+  	<td>D</td>
+    <td>class average</td>
+    <td>previous class average</td>
+    <td>S</td>
+    <td>A</td>
+  	<td>B</td>
+  	<td>C</td>
+  	<td>D</td>
+    <td>class average</td>
+    <td>previous class average</td><td>S</td>
+    <td>A</td>
+  	<td>B</td>
+  	<td>C</td>
+  	<td>D</td>
+    <td>class average</td>
+    <td>previous class average</td><td>S</td>
+    <td>A</td>
+  	<td>B</td>
+  	<td>C</td>
+  	<td>D</td>
+    <td>class average</td>
+    <td>previous class average</td>
+  </tr>
+        <tr style={{ color: "black" }}>
+        <td>1</td>
+        <td>{five[0]}</td>
+        <td>{tableData[0][0]['S_count']}</td>
+        <td>{tableData[0][0]['A_count']}</td>
+        <td>{tableData[0][0]['B_count']}</td>
+        <td>{tableData[0][0]['C_count']}</td>
+        <td>{tableData[0][0]['D_count']}</td>
+        <td>{tableData[0][0]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][5]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][1]['S_count']}</td>
+        <td>{tableData[0][1]['A_count']}</td>
+        <td>{tableData[0][1]['B_count']}</td>
+        <td>{tableData[0][1]['C_count']}</td>
+        <td>{tableData[0][1]['D_count']}</td>
+        <td>{tableData[0][1]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][6]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][2]['S_count']}</td>
+        <td>{tableData[0][2]['A_count']}</td>
+        <td>{tableData[0][2]['B_count']}</td>
+        <td>{tableData[0][2]['C_count']}</td>
+        <td>{tableData[0][2]['D_count']}</td>
+        <td>{tableData[0][2]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][7]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][3]['S_count']}</td>
+        <td>{tableData[0][3]['A_count']}</td>
+        <td>{tableData[0][3]['B_count']}</td>
+        <td>{tableData[0][3]['C_count']}</td>
+        <td>{tableData[0][3]['D_count']}</td>
+        <td>{tableData[0][3]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][8]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][4]['S_count']}</td>
+        <td>{tableData[0][4]['A_count']}</td>
+        <td>{tableData[0][4]['B_count']}</td>
+        <td>{tableData[0][4]['C_count']}</td>
+        <td>{tableData[0][4]['D_count']}</td>
+        <td>{tableData[0][4]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][9]['class_avg'].toFixed(2)}</td>
+      </tr>
+        <tr style={{ color: "black" }}>
+        <td>2</td>
+        <td>{five[1]}</td>
+        <td>{tableData[1][0]['S_count']}</td>
+        <td>{tableData[1][0]['A_count']}</td>
+        <td>{tableData[1][0]['B_count']}</td>
+        <td>{tableData[1][0]['C_count']}</td>
+        <td>{tableData[1][0]['D_count']}</td>
+        <td>{tableData[1][0]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][5]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][1]['S_count']}</td>
+        <td>{tableData[1][1]['A_count']}</td>
+        <td>{tableData[1][1]['B_count']}</td>
+        <td>{tableData[1][1]['C_count']}</td>
+        <td>{tableData[1][1]['D_count']}</td>
+        <td>{tableData[1][1]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][6]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][2]['S_count']}</td>
+        <td>{tableData[1][2]['A_count']}</td>
+        <td>{tableData[1][2]['B_count']}</td>
+        <td>{tableData[1][2]['C_count']}</td>
+        <td>{tableData[1][2]['D_count']}</td>
+        <td>{tableData[1][2]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][7]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][3]['S_count']}</td>
+        <td>{tableData[1][3]['A_count']}</td>
+        <td>{tableData[1][3]['B_count']}</td>
+        <td>{tableData[1][3]['C_count']}</td>
+        <td>{tableData[1][3]['D_count']}</td>
+        <td>{tableData[1][3]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][8]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][4]['S_count']}</td>
+        <td>{tableData[1][4]['A_count']}</td>
+        <td>{tableData[1][4]['B_count']}</td>
+        <td>{tableData[1][4]['C_count']}</td>
+        <td>{tableData[1][4]['D_count']}</td>
+        <td>{tableData[1][4]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][9]['class_avg'].toFixed(2)}</td>
+      </tr>
+
+        <tr style={{ color: "black" }}>
+        <td>3</td>
+        <td>{five[2]}</td>
+        <td>{tableData[2][0]['S_count']}</td>
+        <td>{tableData[2][0]['A_count']}</td>
+        <td>{tableData[2][0]['B_count']}</td>
+        <td>{tableData[2][0]['C_count']}</td>
+        <td>{tableData[2][0]['D_count']}</td>
+        <td>{tableData[2][0]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][5]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][1]['S_count']}</td>
+        <td>{tableData[2][1]['A_count']}</td>
+        <td>{tableData[2][1]['B_count']}</td>
+        <td>{tableData[2][1]['C_count']}</td>
+        <td>{tableData[2][1]['D_count']}</td>
+        <td>{tableData[2][1]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][6]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][2]['S_count']}</td>
+        <td>{tableData[2][2]['A_count']}</td>
+        <td>{tableData[2][2]['B_count']}</td>
+        <td>{tableData[2][2]['C_count']}</td>
+        <td>{tableData[2][2]['D_count']}</td>
+        <td>{tableData[2][2]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][7]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][3]['S_count']}</td>
+        <td>{tableData[2][3]['A_count']}</td>
+        <td>{tableData[2][3]['B_count']}</td>
+        <td>{tableData[2][3]['C_count']}</td>
+        <td>{tableData[2][3]['D_count']}</td>
+        <td>{tableData[2][3]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][8]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][4]['S_count']}</td>
+        <td>{tableData[2][4]['A_count']}</td>
+        <td>{tableData[2][4]['B_count']}</td>
+        <td>{tableData[2][4]['C_count']}</td>
+        <td>{tableData[2][4]['D_count']}</td>
+        <td>{tableData[2][4]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][9]['class_avg'].toFixed(2)}</td>
+      </tr>
+        <tr style={{ color: "black" }}>
+        <td>4</td>
+        <td>{five[3]}</td>
+        <td>{tableData[3][0]['S_count']}</td>
+        <td>{tableData[3][0]['A_count']}</td>
+        <td>{tableData[3][0]['B_count']}</td>
+        <td>{tableData[3][0]['C_count']}</td>
+        <td>{tableData[3][0]['D_count']}</td>
+        <td>{tableData[3][0]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][5]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][1]['S_count']}</td>
+        <td>{tableData[3][1]['A_count']}</td>
+        <td>{tableData[3][1]['B_count']}</td>
+        <td>{tableData[3][1]['C_count']}</td>
+        <td>{tableData[3][1]['D_count']}</td>
+        <td>{tableData[3][1]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][6]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][2]['S_count']}</td>
+        <td>{tableData[3][2]['A_count']}</td>
+        <td>{tableData[3][2]['B_count']}</td>
+        <td>{tableData[3][2]['C_count']}</td>
+        <td>{tableData[3][2]['D_count']}</td>
+        <td>{tableData[3][2]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][7]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][3]['S_count']}</td>
+        <td>{tableData[3][3]['A_count']}</td>
+        <td>{tableData[3][3]['B_count']}</td>
+        <td>{tableData[3][3]['C_count']}</td>
+        <td>{tableData[3][3]['D_count']}</td>
+        <td>{tableData[3][3]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][8]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][4]['S_count']}</td>
+        <td>{tableData[3][4]['A_count']}</td>
+        <td>{tableData[3][4]['B_count']}</td>
+        <td>{tableData[3][4]['C_count']}</td>
+        <td>{tableData[3][4]['D_count']}</td>
         <td>{tableData[3][4]['class_avg'].toFixed(2)}</td>
         <td>{tableData[3][9]['class_avg'].toFixed(2)}</td>
       </tr>
