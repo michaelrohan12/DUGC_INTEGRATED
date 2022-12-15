@@ -4,6 +4,7 @@ import {
 } from 'chart.js';
 import React from "react";
 import { Bar } from 'react-chartjs-2';
+import { defaults } from 'chart.js';
 import './homepage-dugc.css';
 
 var fileID;
@@ -20,6 +21,7 @@ var five = ['Software Engineering', 'System Software', 'Machine Learning', 'Natu
 var six = ['Computer Network-2', 'Distributed and Cloud Computing', 'Blockchain and Distributed Ledgers', 'Algorithm Problem Solving', 'Embedded Intelligent Systems', 'Parallel Computing', 'Quantum Computing', 'Semantic Web', 'Data Integration and Cloud Services'];
 var seven = ['Big Data and Analytics', 'Information Security', 'Social Network Analysis', 'Cyber Security', 'Software Defined Networks'];
 var assets_global;
+var subject_global;
 
 
 class HomepageDugc extends React.Component {
@@ -36,8 +38,10 @@ class HomepageDugc extends React.Component {
       name: "React",
       showChart: false,
       showDownload: false,
-      showTable: false,
+      showTable1: false,
       showConsoliTable: false,
+      showConsoliTable1: false, 
+      showTable2:false
     }
   }
 
@@ -99,6 +103,7 @@ class HomepageDugc extends React.Component {
 
  getCourse = (e) => {
    this.course = e.target.value
+   subject_global = e.target.value
  };
 
  getDiv = (e) => {
@@ -187,9 +192,11 @@ class HomepageDugc extends React.Component {
             }
             console.log(data1,data2,jsonres)
             if(this.state.showChart === false) {
-              this.setState({showTable: false})
+              this.setState({showTable1: false})
+              this.setState({showTable2: false})
               this.setState({ showDownload: false });
               this.setState({ showConsoliTable: false });
+              this.setState({ showConsoliTable1:false});
               this.setState({showChart :!this.state.showChart});
             }
             else{
@@ -231,9 +238,11 @@ class HomepageDugc extends React.Component {
           }
           console.log(data1,data2,jsonres)
           if(this.state.showChart === false) {
-            this.setState({showTable: false})
+            this.setState({showTable1: false})
+            this.setState({showTable2: false})
             this.setState({ showDownload: false });
             this.setState({ showConsoliTable: false });
+            this.setState({ showConsoliTable1:false});
             this.setState({showChart :!this.state.showChart});
           }
           else{
@@ -259,9 +268,11 @@ class HomepageDugc extends React.Component {
         this.setState({ showDownload: true })
       }
       else{
-        this.setState({showTable: false})
+        this.setState({showTable1: false})
+        this.setState({showTable2: false})
         this.setState({ showChart: false });
         this.setState({ showConsoliTable: false });
+        this.setState({ showConsoliTable1:false});
         this.setState({showDownload :!this.state.showDownload});
       }
        
@@ -277,9 +288,15 @@ class HomepageDugc extends React.Component {
       ]
 
       tableData = []
+      var URL = ""
+
+      if(assets_global === 'CIE')
+        URL = "http://localhost:1999/cie4"
+      else
+        URL = "http://localhost:1999/api"
 
 
-      await fetch("http://localhost:1999/api", {
+      await fetch(URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -291,19 +308,39 @@ class HomepageDugc extends React.Component {
       async data => {
           tableData.push(data);
           console.log(tableData)
-         
-          if(this.state.showTable === true){
-            this.setState({ showTable: false })
+          if(assets_global === 'CIE'){
+            if(this.state.showTable2 === true){
+              this.setState({ showTable2: false })
 
-            await this.sleep(500)
+              await this.sleep(500)
 
-            this.setState({ showTable: true })
+              this.setState({ showTable2: true })
+            }
+            else{
+              this.setState({showChart: false})
+              this.setState({ showDownload: false });
+              this.setState({ showConsoliTable: false });
+              this.setState({ showConsoliTable1:false});
+              this.setState({showTable2 :!this.state.showTable2});
+              this.setState({showTable1: false})
+            }
           }
           else{
-            this.setState({showChart: false})
-            this.setState({ showDownload: false });
-            this.setState({ showConsoliTable: false });
-            this.setState({showTable :!this.state.showTable});
+            if(this.state.showTable1 === true){
+              this.setState({ showTable1: false })
+
+              await this.sleep(500)
+
+              this.setState({ showTable1: true })
+            }
+            else{
+              this.setState({showChart: false})
+              this.setState({ showDownload: false });
+              this.setState({ showConsoliTable: false });
+              this.setState({ showConsoliTable1:false});
+              this.setState({showTable2: false})
+              this.setState({showTable1 :!this.state.showTable1});
+            }
           }
           console.log(tableData);
         }
@@ -356,19 +393,39 @@ class HomepageDugc extends React.Component {
         await this.dataRetrieval(dataIDS)
       }
       
-         
-      if(this.state.showConsoliTable === true){
-        this.setState({ showConsoliTable: false })
-
-        await this.sleep(500)
-
-        this.setState({ showConsoliTable: true })
+      if(assets_global === 'CIE'){
+        if(this.state.showConsoliTable === true){
+          this.setState({ showConsoliTable: false })
+  
+          await this.sleep(500)
+  
+          this.setState({ showConsoliTable: true })
+        }
+        else{
+          this.setState({showChart: false})
+          this.setState({ showDownload: false });
+          this.setState({ showTable1: false });
+          this.setState({ showTable2: false });
+          this.setState({ showConsoliTable1: false });
+          this.setState({showConsoliTable :!this.state.showConsoliTable});
+        }
       }
       else{
-        this.setState({showChart: false})
-        this.setState({ showDownload: false });
-        this.setState({ showTable: false });
-        this.setState({showConsoliTable :!this.state.showConsoliTable});
+        if(this.state.showConsoliTable1 === true){
+          this.setState({ showConsoliTable1: false })
+  
+          await this.sleep(500)
+  
+          this.setState({ showConsoliTable1: true })
+        }
+        else{
+          this.setState({showChart: false})
+          this.setState({ showDownload: false });
+          this.setState({ showTable1: false });
+          this.setState({ showTable2: false });
+          this.setState({ showConsoliTable: false });
+          this.setState({showConsoliTable1 :!this.state.showConsoliTable1});
+        }
       }
       
       console.log(tableData);
@@ -510,8 +567,10 @@ class HomepageDugc extends React.Component {
             <option value={"E"}>E</option>
           </select>
           <button id="download-excel" type="submit" onClick={(e) => this.download(e)}>Download Excel</button></>)}
-          {this.state.showTable && <Table />}
+          {this.state.showTable1 && <Table1 />}
+          {this.state.showTable2 && <Table2 />}
           {this.state.showConsoliTable && <ConsolTable />}
+          {this.state.showConsoliTable1 && <ConsolTable1 />}
         </div>
       </div>
     </>
@@ -545,18 +604,41 @@ class Chart extends React.Component{
     backgroundColor: 'rgb(255,99,71)',
     borderColor: 'rgba(99, 132, 0, 1)'
 }
+
+  defaults.font.size = 20
     
     this.state = {
       options : {
         responsive: true,
-          legend: {
-            position: 'top',
-          },
+        legend: {
+          position: 'top',
+        },
+        plugins:{
           title: {
             display: true,
-            text: 'EDA Class Average Analysis',
+            text: subject_global + ' Class Average Analysis',
           }
-      
+        },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Divisions',
+                font: {
+                  size: 25
+                }
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Average Marks',
+                font: {
+                  size: 25
+                }
+              }
+            }
+          }  
       },
       
       avgdata : {
@@ -586,7 +668,10 @@ class Chart extends React.Component{
       const dataAvg = {...this.state.avgdata};
       const dataAvg2 = {...this.state.avgdata2};
       const dataAlys = {...this.state.dataAnalysis};
-      optionsChange.title.text = 'EDA Class Average Analysis';
+      optionsChange.plugins.title.text = subject_global + ' Class Average Analysis';
+
+      optionsChange.scales.x.title.text = 'Divisions'
+      optionsChange.scales.y.title.text = 'Average Marks'
 
 
       dataAvg.label =  ["Class Avg of Current Year"];
@@ -608,7 +693,10 @@ class Chart extends React.Component{
       const optionsChange = {...this.state.options};
       const dataAvg = {...this.state.avgdata};
       const dataAlys = {...this.state.dataAnalysis};
-      optionsChange.title.text = 'Division A Grade Analysis';
+      optionsChange.plugins.title.text = subject_global + ' Division A Grade Analysis';
+
+      optionsChange.scales.x.title.text = 'Grades'
+      optionsChange.scales.y.title.text = 'Grade Count'
 
 
       dataAvg.label =  ["Grade Count of Division A"];
@@ -630,7 +718,10 @@ class Chart extends React.Component{
       const optionsChange = {...this.state.options};
       const dataAvg = {...this.state.avgdata};
       const dataAlys = {...this.state.dataAnalysis};
-      optionsChange.title.text = 'Division B Grade Analysis';
+      optionsChange.plugins.title.text = subject_global + ' Division B Grade Analysis';
+
+      optionsChange.scales.x.title.text = 'Grades'
+      optionsChange.scales.y.title.text = 'Grade Count'
 
 
       dataAvg.label =  ["Grade Count of Division B"];
@@ -654,7 +745,10 @@ class Chart extends React.Component{
       const optionsChange = {...this.state.options};
       const dataAvg = {...this.state.avgdata};
       const dataAlys = {...this.state.dataAnalysis};
-      optionsChange.title.text = 'Division C Grade Analysis';
+      optionsChange.plugins.title.text = subject_global + ' Division C Grade Analysis';
+
+      optionsChange.scales.x.title.text = 'Grades'
+      optionsChange.scales.y.title.text = 'Grade Count'
 
 
       dataAvg.label =  ["Grade Count of Division C"];
@@ -678,7 +772,10 @@ class Chart extends React.Component{
       const optionsChange = {...this.state.options};
       const dataAvg = {...this.state.avgdata};
       const dataAlys = {...this.state.dataAnalysis};
-      optionsChange.title.text = 'Division D Grade Analysis';
+      optionsChange.plugins.title.text = subject_global + ' Division D Grade Analysis';
+
+      optionsChange.scales.x.title.text = 'Grades'
+      optionsChange.scales.y.title.text = 'Grade Count'
 
 
       dataAvg.label =  ["Grade Count of Division D"];
@@ -702,7 +799,10 @@ class Chart extends React.Component{
       const optionsChange = {...this.state.options};
       const dataAvg = {...this.state.avgdata};
       const dataAlys = {...this.state.dataAnalysis};
-      optionsChange.title.text = 'Division E Grade Analysis';
+      optionsChange.plugins.title.text = subject_global + ' Division E Grade Analysis';
+
+      optionsChange.scales.x.title.text = 'Grades'
+      optionsChange.scales.y.title.text = 'Grade Count'
 
 
       dataAvg.label =  ["Grade Count of Division E"];
@@ -720,7 +820,7 @@ class Chart extends React.Component{
     }
   render(){
     return(
-    <div className='wrapper'><div id="options-list">
+    <div className='wrapper'><div id="options-list-mod2">
          Analysis:
           <button onClick={() => this.classAverage()}>Class Average</button>
           <button onClick={() => this.divA()}>Division A</button>
@@ -735,18 +835,19 @@ class Chart extends React.Component{
   }
 }
 
-function Table(){
+function Table1(){
   return (
-    <div>
+    <div style={{ "height": "90%", "width": "90%", "font-size":"20px" }}>
+      <table id="consolidated-table">
       <tr>
-        <th>Division</th>
-        <th>S-Grade</th>
-        <th>A-Grade</th>
-        <th>B-Grade</th>
-        <th>C-Grade</th>
-        <th>D-Grade</th>
-        <th>Class Average</th>
-        <th>Previous Class Average</th>
+        <th style={{"text-align":"center"}}>Division</th>
+        <th style={{"text-align":"center"}}>S-Grade</th>
+        <th style={{"text-align":"center"}}>A-Grade</th>
+        <th style={{"text-align":"center"}}>B-Grade</th>
+        <th style={{"text-align":"center"}}>C-Grade</th>
+        <th style={{"text-align":"center"}}>D-Grade</th>
+        <th style={{"text-align":"center"}}>Class Average</th>
+        <th style={{"text-align":"center"}}>Previous Class Average</th>
       </tr>
       <tr>
         <td>A</td>
@@ -798,18 +899,100 @@ function Table(){
         <td>{tableData[0][4]['class_avg'].toFixed(2)}</td>
         <td>{tableData[0][9]['class_avg'].toFixed(2)}</td>
       </tr>
+      </table>
+    </div>
+  )
+}
+
+function Table2(){
+  return (
+    <div style={{ "height": "90%", "width": "90%", "font-size":"20px" }}>
+      <table id="consolidated-table">
+      <tr>
+        <th style={{"text-align":"center"}}>Division</th>
+        <th style={{"text-align":"center"}}>S-Grade</th>
+        <th style={{"text-align":"center"}}>A-Grade</th>
+        <th style={{"text-align":"center"}}>B-Grade</th>
+        <th style={{"text-align":"center"}}>C-Grade</th>
+        <th style={{"text-align":"center"}}>D-Grade</th>
+        <th style={{"text-align":"center"}}>E-Grade</th>
+        <th style={{"text-align":"center"}}>F-Grade</th>
+        <th style={{"text-align":"center"}}>Class Average</th>
+        <th style={{"text-align":"center"}}>Previous Class Average</th>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>{tableData[0][0]['S_count']}</td>
+        <td>{tableData[0][0]['A_count']}</td>
+        <td>{tableData[0][0]['B_count']}</td>
+        <td>{tableData[0][0]['C_count']}</td>
+        <td>{tableData[0][0]['D_count']}</td>
+        <td>{tableData[0][0]['E_count']}</td>
+        <td>{tableData[0][0]['F_count']}</td>
+        <td>{tableData[0][0]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][5]['class_avg'].toFixed(2)}</td>
+      </tr>
+      <tr>
+        <td>B</td>
+        <td>{tableData[0][1]['S_count']}</td>
+        <td>{tableData[0][1]['A_count']}</td>
+        <td>{tableData[0][1]['B_count']}</td>
+        <td>{tableData[0][1]['C_count']}</td>
+        <td>{tableData[0][1]['D_count']}</td>
+        <td>{tableData[0][0]['E_count']}</td>
+        <td>{tableData[0][0]['F_count']}</td>
+        <td>{tableData[0][1]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][6]['class_avg'].toFixed(2)}</td>
+      </tr>
+      <tr>
+        <td>C</td>
+        <td>{tableData[0][2]['S_count']}</td>
+        <td>{tableData[0][2]['A_count']}</td>
+        <td>{tableData[0][2]['B_count']}</td>
+        <td>{tableData[0][2]['C_count']}</td>
+        <td>{tableData[0][2]['D_count']}</td>
+        <td>{tableData[0][0]['E_count']}</td>
+        <td>{tableData[0][0]['F_count']}</td>
+        <td>{tableData[0][2]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][7]['class_avg'].toFixed(2)}</td>
+      </tr>
+      <tr>
+        <td>D</td>
+        <td>{tableData[0][3]['S_count']}</td>
+        <td>{tableData[0][3]['A_count']}</td>
+        <td>{tableData[0][3]['B_count']}</td>
+        <td>{tableData[0][3]['C_count']}</td>
+        <td>{tableData[0][3]['D_count']}</td>
+        <td>{tableData[0][0]['E_count']}</td>
+        <td>{tableData[0][0]['F_count']}</td>
+        <td>{tableData[0][3]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][8]['class_avg'].toFixed(2)}</td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td>{tableData[0][4]['S_count']}</td>
+        <td>{tableData[0][4]['A_count']}</td>
+        <td>{tableData[0][4]['B_count']}</td>
+        <td>{tableData[0][4]['C_count']}</td>
+        <td>{tableData[0][4]['D_count']}</td>
+        <td>{tableData[0][0]['E_count']}</td>
+        <td>{tableData[0][0]['F_count']}</td>
+        <td>{tableData[0][4]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][9]['class_avg'].toFixed(2)}</td>
+      </tr>
+      </table>
     </div>
   )
 }
 
 function ConsolTable(){
   return (
-    <div style={{ "height": "90%", "width": "90%" }}>
+    <div style={{ "height": "90%", "width": "90%", "font-size": "20px"}}>
 <table id='consolidated-table'>
   <tr style={{color: "black"}}>
-    <th rowspan="3">SL.No</th>
-    <th rowspan="3">Subject Name</th>
-    <th colspan="50">No of students scoring marks</th>    
+    <th style={{"text-align":"center"}} rowspan="3">SL.No</th>
+    <th style={{"text-align":"center"}} rowspan="3">Subject Name</th>
+    <th style={{"text-align":"center"}} colspan="50">No of students scoring marks</th>    
   </tr>
         <tr style={{ color: "black" }}>
     <td colspan="10">A-div</td>
@@ -827,8 +1010,8 @@ function ConsolTable(){
   	<td>E</td>
     <td>F</td>
     <td>Total</td>
-    <td>class-avg</td>
-    <td>previous avg</td>
+    <td>class average</td>
+    <td>previous class average</td>
   	<td>S</td>
     <td>A</td>
   	<td>B</td>
@@ -837,8 +1020,8 @@ function ConsolTable(){
   	<td>E</td>
     <td>F</td>
     <td>Total</td>
-    <td>class-avg</td>
-    <td>previous avg</td>
+    <td>class average</td>
+    <td>previous class average</td>
     <td>S</td>
     <td>A</td>
   	<td>B</td>
@@ -847,8 +1030,8 @@ function ConsolTable(){
   	<td>E</td>
     <td>F</td>
     <td>Total</td>
-    <td>class-avg</td>
-    <td>previous avg</td><td>S</td>
+    <td>class average</td>
+    <td>previous class average</td><td>S</td>
     <td>A</td>
   	<td>B</td>
   	<td>C</td>
@@ -856,8 +1039,8 @@ function ConsolTable(){
   	<td>E</td>
     <td>F</td>
     <td>Total</td>
-    <td>class-avg</td>
-    <td>previous avg</td><td>S</td>
+    <td>class average</td>
+    <td>previous class average</td><td>S</td>
     <td>A</td>
   	<td>B</td>
   	<td>C</td>
@@ -865,8 +1048,8 @@ function ConsolTable(){
   	<td>E</td>
     <td>F</td>
     <td>Total</td>
-    <td>class-avg</td>
-    <td>previous avg</td>
+    <td>class average</td>
+    <td>previous class average</td>
   </tr>
         <tr style={{ color: "black" }}>
         <td>1</td>
@@ -1082,6 +1265,221 @@ function ConsolTable(){
         <td>{tableData[3][4]['E_count']}</td>
         <td>{tableData[3][4]['F_count']}</td>
         <td>{tableData[3][4]['Total']}</td>
+        <td>{tableData[3][4]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][9]['class_avg'].toFixed(2)}</td>
+      </tr>
+      
+  
+</table>
+    </div>
+  )
+}
+
+function ConsolTable1(){
+  return (
+    <div style={{ "height": "90%", "width": "90%", "font-size": "20px"}}>
+<table id='consolidated-table'>
+  <tr style={{color: "black"}}>
+    <th style={{"text-align":"center"}} rowspan="3">SL.No</th>
+    <th style={{"text-align":"center"}} rowspan="3">Subject Name</th>
+    <th style={{"text-align":"center"}} colspan="50">No of students scoring marks</th>    
+  </tr>
+        <tr style={{ color: "black" }}>
+    <td colspan="10">A-div</td>
+    <td colspan="10">B-div</td>
+    <td colspan="10">C-div</td>
+    <td colspan="10">D-div</td>
+    <td colspan="10">E-div</td>
+  </tr>
+        <tr style={{ color: "black" }}>
+  	<td>S</td>
+    <td>A</td>
+  	<td>B</td>
+  	<td>C</td>
+  	<td>D</td>
+    <td>class average</td>
+    <td>previous class average</td>
+  	<td>S</td>
+    <td>A</td>
+  	<td>B</td>
+  	<td>C</td>
+  	<td>D</td>
+    <td>class average</td>
+    <td>previous class average</td>
+    <td>S</td>
+    <td>A</td>
+  	<td>B</td>
+  	<td>C</td>
+  	<td>D</td>
+    <td>class average</td>
+    <td>previous class average</td><td>S</td>
+    <td>A</td>
+  	<td>B</td>
+  	<td>C</td>
+  	<td>D</td>
+    <td>class average</td>
+    <td>previous class average</td><td>S</td>
+    <td>A</td>
+  	<td>B</td>
+  	<td>C</td>
+  	<td>D</td>
+    <td>class average</td>
+    <td>previous class average</td>
+  </tr>
+        <tr style={{ color: "black" }}>
+        <td>1</td>
+        <td>{five[0]}</td>
+        <td>{tableData[0][0]['S_count']}</td>
+        <td>{tableData[0][0]['A_count']}</td>
+        <td>{tableData[0][0]['B_count']}</td>
+        <td>{tableData[0][0]['C_count']}</td>
+        <td>{tableData[0][0]['D_count']}</td>
+        <td>{tableData[0][0]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][5]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][1]['S_count']}</td>
+        <td>{tableData[0][1]['A_count']}</td>
+        <td>{tableData[0][1]['B_count']}</td>
+        <td>{tableData[0][1]['C_count']}</td>
+        <td>{tableData[0][1]['D_count']}</td>
+        <td>{tableData[0][1]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][6]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][2]['S_count']}</td>
+        <td>{tableData[0][2]['A_count']}</td>
+        <td>{tableData[0][2]['B_count']}</td>
+        <td>{tableData[0][2]['C_count']}</td>
+        <td>{tableData[0][2]['D_count']}</td>
+        <td>{tableData[0][2]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][7]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][3]['S_count']}</td>
+        <td>{tableData[0][3]['A_count']}</td>
+        <td>{tableData[0][3]['B_count']}</td>
+        <td>{tableData[0][3]['C_count']}</td>
+        <td>{tableData[0][3]['D_count']}</td>
+        <td>{tableData[0][3]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][8]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][4]['S_count']}</td>
+        <td>{tableData[0][4]['A_count']}</td>
+        <td>{tableData[0][4]['B_count']}</td>
+        <td>{tableData[0][4]['C_count']}</td>
+        <td>{tableData[0][4]['D_count']}</td>
+        <td>{tableData[0][4]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[0][9]['class_avg'].toFixed(2)}</td>
+      </tr>
+        <tr style={{ color: "black" }}>
+        <td>2</td>
+        <td>{five[1]}</td>
+        <td>{tableData[1][0]['S_count']}</td>
+        <td>{tableData[1][0]['A_count']}</td>
+        <td>{tableData[1][0]['B_count']}</td>
+        <td>{tableData[1][0]['C_count']}</td>
+        <td>{tableData[1][0]['D_count']}</td>
+        <td>{tableData[1][0]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][5]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][1]['S_count']}</td>
+        <td>{tableData[1][1]['A_count']}</td>
+        <td>{tableData[1][1]['B_count']}</td>
+        <td>{tableData[1][1]['C_count']}</td>
+        <td>{tableData[1][1]['D_count']}</td>
+        <td>{tableData[1][1]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][6]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][2]['S_count']}</td>
+        <td>{tableData[1][2]['A_count']}</td>
+        <td>{tableData[1][2]['B_count']}</td>
+        <td>{tableData[1][2]['C_count']}</td>
+        <td>{tableData[1][2]['D_count']}</td>
+        <td>{tableData[1][2]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][7]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][3]['S_count']}</td>
+        <td>{tableData[1][3]['A_count']}</td>
+        <td>{tableData[1][3]['B_count']}</td>
+        <td>{tableData[1][3]['C_count']}</td>
+        <td>{tableData[1][3]['D_count']}</td>
+        <td>{tableData[1][3]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][8]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][4]['S_count']}</td>
+        <td>{tableData[1][4]['A_count']}</td>
+        <td>{tableData[1][4]['B_count']}</td>
+        <td>{tableData[1][4]['C_count']}</td>
+        <td>{tableData[1][4]['D_count']}</td>
+        <td>{tableData[1][4]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[1][9]['class_avg'].toFixed(2)}</td>
+      </tr>
+
+        <tr style={{ color: "black" }}>
+        <td>3</td>
+        <td>{five[2]}</td>
+        <td>{tableData[2][0]['S_count']}</td>
+        <td>{tableData[2][0]['A_count']}</td>
+        <td>{tableData[2][0]['B_count']}</td>
+        <td>{tableData[2][0]['C_count']}</td>
+        <td>{tableData[2][0]['D_count']}</td>
+        <td>{tableData[2][0]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][5]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][1]['S_count']}</td>
+        <td>{tableData[2][1]['A_count']}</td>
+        <td>{tableData[2][1]['B_count']}</td>
+        <td>{tableData[2][1]['C_count']}</td>
+        <td>{tableData[2][1]['D_count']}</td>
+        <td>{tableData[2][1]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][6]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][2]['S_count']}</td>
+        <td>{tableData[2][2]['A_count']}</td>
+        <td>{tableData[2][2]['B_count']}</td>
+        <td>{tableData[2][2]['C_count']}</td>
+        <td>{tableData[2][2]['D_count']}</td>
+        <td>{tableData[2][2]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][7]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][3]['S_count']}</td>
+        <td>{tableData[2][3]['A_count']}</td>
+        <td>{tableData[2][3]['B_count']}</td>
+        <td>{tableData[2][3]['C_count']}</td>
+        <td>{tableData[2][3]['D_count']}</td>
+        <td>{tableData[2][3]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][8]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][4]['S_count']}</td>
+        <td>{tableData[2][4]['A_count']}</td>
+        <td>{tableData[2][4]['B_count']}</td>
+        <td>{tableData[2][4]['C_count']}</td>
+        <td>{tableData[2][4]['D_count']}</td>
+        <td>{tableData[2][4]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[2][9]['class_avg'].toFixed(2)}</td>
+      </tr>
+        <tr style={{ color: "black" }}>
+        <td>4</td>
+        <td>{five[3]}</td>
+        <td>{tableData[3][0]['S_count']}</td>
+        <td>{tableData[3][0]['A_count']}</td>
+        <td>{tableData[3][0]['B_count']}</td>
+        <td>{tableData[3][0]['C_count']}</td>
+        <td>{tableData[3][0]['D_count']}</td>
+        <td>{tableData[3][0]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][5]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][1]['S_count']}</td>
+        <td>{tableData[3][1]['A_count']}</td>
+        <td>{tableData[3][1]['B_count']}</td>
+        <td>{tableData[3][1]['C_count']}</td>
+        <td>{tableData[3][1]['D_count']}</td>
+        <td>{tableData[3][1]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][6]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][2]['S_count']}</td>
+        <td>{tableData[3][2]['A_count']}</td>
+        <td>{tableData[3][2]['B_count']}</td>
+        <td>{tableData[3][2]['C_count']}</td>
+        <td>{tableData[3][2]['D_count']}</td>
+        <td>{tableData[3][2]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][7]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][3]['S_count']}</td>
+        <td>{tableData[3][3]['A_count']}</td>
+        <td>{tableData[3][3]['B_count']}</td>
+        <td>{tableData[3][3]['C_count']}</td>
+        <td>{tableData[3][3]['D_count']}</td>
+        <td>{tableData[3][3]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][8]['class_avg'].toFixed(2)}</td>
+        <td>{tableData[3][4]['S_count']}</td>
+        <td>{tableData[3][4]['A_count']}</td>
+        <td>{tableData[3][4]['B_count']}</td>
+        <td>{tableData[3][4]['C_count']}</td>
+        <td>{tableData[3][4]['D_count']}</td>
         <td>{tableData[3][4]['class_avg'].toFixed(2)}</td>
         <td>{tableData[3][9]['class_avg'].toFixed(2)}</td>
       </tr>

@@ -427,6 +427,7 @@ app.post("/fileUpload", upload.single("file"), (req, res) => {
 var path3;
 app.post("/download", async (req, res) => {
   var stringid = req.body;
+  var filename_2;
   const collection2 = connection.db.collection("files");
   console.log(stringid[0]["id"]);
   await collection2
