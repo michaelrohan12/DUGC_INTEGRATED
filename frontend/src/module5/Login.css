@@ -32,9 +32,11 @@
     margin: auto;
   }
   .container > form {
-    width: 60%;
+    width: 80%;
+    height: 70vh;
     border: 1px solid #dfdfdf;
     padding: 20px;
+    font-size: 1.3rem;
     border-radius: 5px;
     background: #fff;
     margin-left: 5rem;

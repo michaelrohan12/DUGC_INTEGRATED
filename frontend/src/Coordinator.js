@@ -197,8 +197,11 @@ const Coordinator = () => {
       <Tabs className="Tabs">
         <b>
           <TabList style={{ boxShadow: " 0px 2px 2px 0px rgb(0 0 0 / 10%)" }}>
-            <Tab onClick={() => window.open("http://localhost:4000")} style={{ background: "#a0a3a4" }}>
+            {/* <Tab onClick={() => window.open("http://localhost:4000")} style={{ background: "#a0a3a4" }}> */}
+            <Tab>
+              <Link to={'/makeForm'}>
               DUGC Makeup Minor Approval
+              </Link>
             </Tab>
 
             <Tab>

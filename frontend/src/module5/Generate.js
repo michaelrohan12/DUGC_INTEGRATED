@@ -228,7 +228,7 @@ const Generate = props => {
           }}/>
         </div>
         {
-          role && role !== "dugc" ? <div className='courses'>
+          role && role !== "dugc" && role!=="HOD" ? <div className='courses'>
           <h3 class="component">Course</h3>
           <Select className="course" placeholder="Course" options={courseArray[semester - 3]} 
           onChange={(item) => {
@@ -243,7 +243,7 @@ const Generate = props => {
       <div className='submitform' style={{display:"flex"}}>
       <form>
       {
-        role && role !=="dugc"?<div class="" >
+        role && role !=="dugc" && role!="HOD"?<div class="" >
               <h3 style={{ padding: "25px" }}>Please Select a file to Upload</h3>
           <input type="file" onChange={handleChange}/>
           <button onClick={handleSubmit} className="btn btn-primary" >Upload</button>

@@ -11,7 +11,8 @@ import React, { useState, useEffect, useRef } from "react";
 
 const roles = [
   { label: "Coordinator", value: "Coordinator" },
-  { label: "DUGC Member", value: "DUGC Member" }
+  { label: "DUGC Member", value: "DUGC Member" },
+  { label: "HOD", value: "HOD" }
 ]
 
 const Shreyas = (props) => {
@@ -71,6 +72,11 @@ const Shreyas = (props) => {
       }
       else if (Crole == "DUGC Member") {
         localStorage.setItem('role', "dugc")
+      }
+      else if(Crole=="HOD")
+      {
+        localStorage.setItem('role', "HOD");
+        navigate("/Generate")
       }
       navigate("/Generate");
 
@@ -160,7 +166,7 @@ const Shreyas = (props) => {
           <div className="field">
             <label>Password</label>
             <input
-              type="text"
+              type="password"
               name="upass"
               placeholder="Password"
               onChange={(e) => handleChange(e)}
